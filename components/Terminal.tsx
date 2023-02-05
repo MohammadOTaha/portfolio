@@ -58,10 +58,9 @@ export default function Terminal() {
         <div className='flex'>
           <span className='text-gray-500'>visitor@</span>
           <span className='text-gray-700'>Omar-Portfolio</span>
-          <span className='text-gray-500'>:&nbsp;</span>
+          <span className='text-gray-500 mr-1'>:</span>
           <span className='text-gray-700'>~</span>
-          <span className='text-gray-500'>$&nbsp;</span>
-
+          <span className='text-gray-500 mr-1'>$</span>
           <input className='flex-grow bg-transparent outline-none' onKeyDown={handleKeyDown} />
         </div>
       </div>
