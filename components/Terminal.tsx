@@ -24,7 +24,7 @@ export default function Terminal() {
   };
 
   return (
-    <div className='flex flex-col gap-4 rounded-xl border-2 shadow-xl p-4 w-6/12 mt-4'>
+    <div className='flex flex-col gap-4 rounded-xl border-2 shadow-xl p-4 w-6/12 mt-8'>
       {/*toolbar*/}
       <div className='flex'>
         {/*terminal buttons*/}

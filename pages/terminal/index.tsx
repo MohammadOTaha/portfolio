@@ -5,7 +5,6 @@ export default function TerminalPage() {
     <div className='
       flex
       flex-col
-      gap-8
       items-center
       '>
       <div className='
@@ -41,6 +40,7 @@ export default function TerminalPage() {
         gap-8
         items-center
         justify-center
+        mt-4
         '>
         {/*twitter*/}
         <a href='https://twitter.com/_mohammadomar' target='_blank' rel='noreferrer' className='z-10 hover:text-blue-400'>
