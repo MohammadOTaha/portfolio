@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export default function Terminal() {
   const terminalRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [commandsHistory, setCommandsHistory] = useState(Array<{ input: string; output: string; }>());
 
   useEffect(() => {
     terminalRef.current?.scrollTo(0, terminalRef.current.scrollHeight);
+    inputRef.current?.focus();
   });
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -66,7 +68,7 @@ export default function Terminal() {
           <span className='text-gray-500 mr-1'>:</span>
           <span className='text-gray-700'>~</span>
           <span className='text-gray-500 mr-1'>$</span>
-          <input className='flex-grow bg-transparent outline-none text-gray-700 w-fit z-10' onKeyDown={handleKeyDown} />
+          <input className='flex-grow bg-transparent outline-none text-gray-700 w-fit z-10' onKeyDown={handleKeyDown} ref={inputRef} />
         </div>
       </div>
     </div>
