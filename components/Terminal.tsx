@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function Terminal() {
   const terminalRef = useRef<HTMLDivElement>(null);
@@ -13,11 +13,16 @@ export default function Terminal() {
       const input = e.currentTarget.value;
       setCommandsHistory([...commandsHistory, { input, output: 'output' }]);
       e.currentTarget.value = '';
+    } else if (e.ctrlKey && e.key === 'l') {
+      setCommandsHistory([]);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      e.currentTarget.value = commandsHistory[commandsHistory.length - 1].input;
     }
   };
 
   return (
-    <div className='flex flex-col gap-4 mt-8 mx-24 rounded-xl border shadow-lg shadow-indigo-100 p-4 text-left'>
+    <div className='flex flex-col gap-4 rounded-xl border-2 shadow-xl p-4 w-6/12 mt-4'>
       {/*toolbar*/}
       <div className='flex'>
         {/*terminal buttons*/}
@@ -37,7 +42,7 @@ export default function Terminal() {
       </div>
 
       {/*terminal content*/}
-      <div className='flex flex-col gap-2 overflow-y-auto max-h-96' ref={terminalRef}>
+      <div className='flex flex-col gap-2 overflow-y-auto max-h-96 scrollbar scrollbar-w-2 scrollbar-thumb-indigo-100 scrollbar-thumb-rounded-lg' ref={terminalRef}>
         {/*commands history*/}
         {commandsHistory.map((command, index) => (
           <div className='flex flex-col' key={index}>
@@ -61,7 +66,7 @@ export default function Terminal() {
           <span className='text-gray-500 mr-1'>:</span>
           <span className='text-gray-700'>~</span>
           <span className='text-gray-500 mr-1'>$</span>
-          <input className='flex-grow bg-transparent outline-none' onKeyDown={handleKeyDown} />
+          <input className='flex-grow bg-transparent outline-none text-gray-700 w-fit' onKeyDown={handleKeyDown} />
         </div>
       </div>
     </div>
