@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import executeCommand from '../services/ExecuteCommand';
 
 export default function Terminal() {
   const terminalRef = useRef<HTMLDivElement>(null);
@@ -13,13 +14,18 @@ export default function Terminal() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const input = e.currentTarget.value;
-      setCommandsHistory([...commandsHistory, { input, output: 'output' }]);
+      const output = executeCommand(input.trim().toLowerCase());
+
+      setCommandsHistory([...commandsHistory, { input, output: output }]);
+
       e.currentTarget.value = '';
     } else if (e.ctrlKey && e.key === 'l') {
       setCommandsHistory([]);
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      e.currentTarget.value = commandsHistory[commandsHistory.length - 1].input;
+      if (commandsHistory.length > 0) {
+        e.currentTarget.value = commandsHistory[commandsHistory.length - 1].input;
+      }
     }
   };
 
@@ -44,7 +50,9 @@ export default function Terminal() {
       </div>
 
       {/*terminal content*/}
-      <div className='flex flex-col gap-2 overflow-y-auto max-h-96 scrollbar scrollbar-w-2 scrollbar-thumb-indigo-100 scrollbar-thumb-rounded-lg' ref={terminalRef}>
+      <div
+        className='flex flex-col gap-2 overflow-y-auto max-h-96 scrollbar scrollbar-w-2 scrollbar-thumb-indigo-100 scrollbar-thumb-rounded-lg'
+        ref={terminalRef}>
         {/*commands history*/}
         {commandsHistory.map((command, index) => (
           <div className='flex flex-col' key={index}>
@@ -57,7 +65,12 @@ export default function Terminal() {
               <span>{command.input}</span>
             </div>
 
-            <span className='text-gray-700'>{command.output}</span>
+            {command.output.startsWith('http') ?
+              (<a href={command.output}> <span className='text-blue-500'>{command.output}</span> </a>)
+              : command.output.split('\n').map((line, index) => (
+                <span className='text-gray-700' key={index}>{line}</span>
+              ))
+            }
           </div>
         ))}
 
@@ -68,7 +81,8 @@ export default function Terminal() {
           <span className='text-gray-500 mr-1'>:</span>
           <span className='text-gray-700'>~</span>
           <span className='text-gray-500 mr-1'>$</span>
-          <input className='flex-grow bg-transparent outline-none text-gray-700 w-fit z-10' onKeyDown={handleKeyDown} ref={inputRef} />
+          <input className='flex-grow bg-transparent outline-none text-gray-700 w-fit z-10' onKeyDown={handleKeyDown}
+                 ref={inputRef} />
         </div>
       </div>
     </div>

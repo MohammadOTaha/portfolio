@@ -1,0 +1,17 @@
+{
+  "help": "Available commands are:\n email, cv, github, linkedin, twitter, hobbies, skills, education, experience, projects, interests, languages, awards, contact, help",
+  "email": "mohammadomartaha17@gmail.com",
+  "cv": "https://drive.google.com/file/d/13aHR5LWOqSdQ9BlJT7kJtCz09iU3C-5V/view?usp=sharing",
+  "github": "https://github.com/MohammadOTaha",
+  "linkedin": "https://www.linkedin.com/in/mohammad-omar-taha/",
+  "twitter": "https://twitter.com/_mohammadomar",
+  "hobbies": "Video games (my all time favorites are Elden Ring and L.A. Noire), listening to music (Jazz & Rock especially), movies and sometimes reading books.",
+  "skills": "- Backend development (PHP Laravel, NodeJS, and always open to use new technologies),\n- Distributed Systems design\n-  and some frontend development mostly using ReactJS.",
+  "education": "Currently studying Computer Science at the German University in Cairo.",
+  "experience": "- I have interned at Microsoft as a Site Reliability Engineering intern.\n- I have been working as a part-time Backend Developer at a startup called Robusta Studio for more than a year now.",
+  "projects": "I have worked on many projects at Robusta Studio,\n and a few school projects such as a web application for an online learning platform,\n github repo: https://github.com/Advanced-Computer-Lab-2022/Linear-Depression",
+  "interests": "I am interested in backend development, distributed systems, solving challenging problems, and also some frontend development for fun.",
+  "languages": "Arabic, English and German.",
+  "awards": "- Ranked among the top 20 students in Egypt in Thanaweya Amma 2019.\n - Awared partial scholarship for excellence from the German University in Cairo.",
+  "contact": "You can contact me on my email: mohammadomartaha17@gmail.com,\n or on my LinkedIn: https://www.linkedin.com/in/mohammad-omar-taha/"
+}

@@ -28,11 +28,11 @@ export default function TerminalPage() {
       <Terminal />
 
       <div
-        className='fixed top-1/2 right-1/2 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob' />
+        className='fixed top-1/2 right-1/2 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob -z-10' />
       <div
-        className='fixed bottom-96 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000' />
+        className='fixed bottom-96 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 -z-10' />
       <div
-        className='fixed top-96 right-1/3 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000' />
+        className='fixed top-96 right-1/3 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 -z-10' />
 
       {/*  social media icons */}
       <div className='
